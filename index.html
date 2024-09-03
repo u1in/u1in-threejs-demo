@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three/build/three.module.js"
+        }
+      }
+    </script>
+    <script type="module">
+      import * as THREE from "three";
+
+      const width = window.innerWidth;
+      const height = window.innerHeight;
+
+      // 设置摄像机
+      const camera = new THREE.PerspectiveCamera(70, width / height, 0.01, 10);
+      camera.position.z = 1;
+
+      // 创建场景
+      const scene = new THREE.Scene();
+
+      // 创建形状
+      const geometry = new THREE.BoxGeometry(0.2, 0.2, 0.2);
+      // 创建材料
+      const material = new THREE.MeshNormalMaterial();
+      // 创建物体
+      const mesh = new THREE.Mesh(geometry, material);
+      // 添加物体
+      scene.add(mesh);
+
+      // 定义动画
+      function animate(time) {
+        mesh.rotation.x = time / 2000;
+        mesh.rotation.y = time / 1000;
+
+        renderer.render(scene, camera);
+      }
+
+      // 创建渲染类
+      const renderer = new THREE.WebGLRenderer({ antialias: true });
+      // 设置画布大小
+      renderer.setSize(width, height);
+      // 执行渲染
+      // renderer.render(scene, camera);
+      // 设置动画
+      renderer.setAnimationLoop(animate);
+      // 挂在到dom上
+      document.body.appendChild(renderer.domElement);
+    </script>
+  </body>
+</html>
