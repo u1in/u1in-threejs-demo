@@ -8,7 +8,7 @@ import Main from "./src/main";
 
 // 设置循环动画
 Renderer.setAnimationLoop((time) => {
-  OrbitControls.update();
+  // OrbitControls.update();
   Subscribe.notice(time);
   Renderer.render(Scene, Camera);
 });
