@@ -4,10 +4,7 @@ import Renderer from "./modules/Render";
 import Scene from "./modules/Scence";
 import Subscribe from "./modules/Subscribe";
 import OrbitControls from "./modules/OrbitControls";
-import Main from "./main";
-
-// 执行主函数
-Main();
+import Main from "./src/main";
 
 // 设置循环动画
 Renderer.setAnimationLoop((time) => {
@@ -19,3 +16,6 @@ Renderer.setAnimationLoop((time) => {
 // 初始化canvas
 Renderer.render(Scene, Camera);
 document.body.appendChild(Renderer.domElement);
+
+// 执行主函数
+Main();

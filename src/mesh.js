@@ -1,13 +1,8 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import Camera from "./modules/Camera";
-import Renderer from "./modules/Render";
-import Scene from "./modules/Scence";
-import Lights from "./modules/Lights";
-import Subscribe from "./modules/Subscribe";
-import createGeometry from "./utils/createGeometry";
+import createGeometry from "../utils/createGeometry";
+import Scene from "../modules/Scence";
 
-const Main = () => {
+const mesh = () => {
   const vertices = [
     // 底前面
     { pos: [-6, 0, 0], norm: [0, -1, 0] },
@@ -41,10 +36,5 @@ const Main = () => {
   const meterial = new THREE.MeshPhongMaterial();
   const mesh = new THREE.Mesh(geometry, meterial);
   Scene.add(mesh);
-
-  Subscribe.add((time) => {
-    // console.log(time);
-  });
 };
-
-export default Main;
+export default mesh;

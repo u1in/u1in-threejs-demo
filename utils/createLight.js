@@ -5,6 +5,7 @@ const createLight = (color, position) => {
   const Light = new THREE.PointLight(color, 100);
   Light.add(new THREE.Mesh(sphere, new THREE.MeshBasicMaterial({ color })));
   Light.position.set(...position);
+  Light.position.raw = position;
   return Light;
 };
 
